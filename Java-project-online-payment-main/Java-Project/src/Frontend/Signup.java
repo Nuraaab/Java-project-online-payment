@@ -229,36 +229,16 @@ ResultSet rs=null;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         try{
-        String query ="INSERT INTO userdata(username, password, usertype) VALUES (?,?,?)";
+        String query ="INSERT INTO `userdata`(`username`, `password`, `usertype`) VALUES (?,?,?)";
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javaproject" , "root", "");
         pst=con.prepareStatement(query);  
         pst.setString(1,username.getText() );
-        pst.setString(2, password.getText());
+        pst.setString(2, password.getText().toString());
         pst.setString(3, String.valueOf(combo.getSelectedItem()));
-        pst.executeUpdate();
-        if(rs.next()){
         JOptionPane.showMessageDialog(this,  "You are Registered as "+rs.getString("usertype"));
-    }
-        if(combo.getSelectedIndex()==0){
-          CustumerPanel custumer = new CustumerPanel();
-          custumer.setVisible(true);
-          this.setVisible(false);
-      }else if(combo.getSelectedIndex()==1){
-          ElectricityPanel electricity = new ElectricityPanel();
-          electricity.setVisible(true);
-          this.setVisible(false);
-      }else if(combo.getSelectedIndex()==2){
-          Waterpanel water = new Waterpanel();
-          water.setVisible(true);
-          this.setVisible(false);
-          
-      }else if(combo.getSelectedIndex()==3){
-          TelecomPanel tele = new TelecomPanel();
-          tele.setVisible(true);
-          this.setVisible(false);
-      }else{
-          JOptionPane.showMessageDialog(this, "Register not successfull");
-      }
+        pst.executeUpdate();
+        
+ 
         }catch(Exception ex){
         JOptionPane.showMessageDialog(this,ex.getMessage());
         }
