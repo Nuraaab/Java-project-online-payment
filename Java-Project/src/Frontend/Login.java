@@ -213,7 +213,7 @@ try{
         JOptionPane.showMessageDialog(this,  "You are logd in as "+rs.getString("usertype"));
     }
     if(jComboBox1.getSelectedIndex()==0){
-          CustumerPanel custumer = new CustumerPanel();
+          Custumer_page custumer = new Custumer_page();
           custumer.setVisible(true);
           this.setVisible(false);
       }else if(jComboBox1.getSelectedIndex()==1){

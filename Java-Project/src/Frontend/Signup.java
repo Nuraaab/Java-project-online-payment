@@ -255,7 +255,7 @@ ResultSet rs=null;
         rc=pst.executeUpdate();
         JOptionPane.showMessageDialog(this,  "You are Registered successfully ");
         if(combo.getSelectedIndex()==0){
-          CustumerPanel custumer = new CustumerPanel();
+          Custumer_page custumer = new Custumer_page();
           custumer.setVisible(true);
           this.setVisible(false);
       }else if(combo.getSelectedIndex()==1){
